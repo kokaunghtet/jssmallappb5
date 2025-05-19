@@ -1,0 +1,201 @@
+:root {
+  --color1: linear-gradient(to right, steelblue, skyblue);
+  --color2: linear-gradient(to top, steelblue, skyblue);
+  --color3: linear-gradient(to left, steelblue, skyblue);
+}
+
+* {
+  font-family: ubuntu;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  height: 150vh;
+
+  display: grid;
+  place-items: center;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-checkbox {
+  /* visibility: hidden; */
+  display: none;
+}
+
+.toggle-label {
+  width: 40px;
+  height: 20px;
+
+  margin: 0 15px;
+
+  background-color: #bbb;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.toggle-label .ball {
+  width: 15px;
+  height: 15px;
+
+  background-color: #f0f0f0;
+
+  border-radius: 50%;
+
+  position: absolute;
+  left: 2px;
+  top: 2.5px;
+
+  animation: offani .3s linear forwards;
+}
+
+.toggle-checkbox:checked+.toggle-label {
+  background-color: steelblue;
+}
+
+.toggle-checkbox:checked+.toggle-label .ball {
+  animation: onani .3s linear forwards;
+}
+
+@keyframes onani {
+  0% {
+    transform: translate(0px) scale(1);
+  }
+
+  50% {
+    transform: translate(10.5px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(21px) scale(1);
+  }
+}
+
+@keyframes offani {
+  0% {
+    transform: translate(21px) scale(1);
+  }
+
+  50% {
+    transform: translate(10.5px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(0px) scale(1);
+  }
+}
+
+.price-container {
+  width: 100%;
+  display: flex;
+}
+
+.price-box {
+  width: 400px;
+  padding: 20px 0;
+
+  background-color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+
+  text-align: center;
+}
+
+.price-box:nth-of-type(2) {
+  transform: scale(1.1);
+}
+
+.box {
+  padding: 30px 0;
+  color: #fff;
+}
+
+.box1,
+.btn1 {
+  background: var(--color1);
+}
+
+.box2,
+.btn2 {
+  background: var(--color2);
+}
+
+.box3,
+.btn3 {
+  background: var(--color3);
+}
+
+.price-box p {
+  padding: 20px 0;
+
+  background-color: steelblue;
+
+  font-size: 20px;
+}
+
+.price-box h3 span {
+  font-size: 30px;
+
+  vertical-align: middle;
+}
+
+.price-box h3 span:nth-of-type(2) {
+  font-size: 50px;
+}
+
+.price-list .list-group {
+  list-style-type: none;
+
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.price-list .list-group .list-group-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+
+  font-size: 16px;
+}
+
+.price-list .list-group .list-group-item:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.price-list .btn {
+  padding: 18px 45px;
+
+  background-color: green;
+  color: #fff;
+
+  border: none;
+  border-radius: 5px;
+
+  font-size: 18px;
+  text-decoration: none;
+
+  transition: all .3s ease-in;
+}
+
+.price-list .btn:hover {
+  font-size: 20px;
+}

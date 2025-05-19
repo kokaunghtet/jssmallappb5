@@ -1,0 +1,83 @@
+body {
+  font-family: sans-serif;
+}
+
+body>h1,
+p {
+  width: 80%;
+  margin: 20px auto;
+}
+
+body>h1 {
+  color: steelblue;
+  letter-spacing: 2px;
+}
+
+.accordion {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* ACCTITLE */
+.accordion .acctitle {
+  background-color: #777;
+  color: white;
+
+  font-size: 14px;
+
+  margin: 0;
+  padding: 15px;
+
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  transition: 0.1s ease-in;
+}
+
+
+.accordion .acctitle:hover {
+  background-color: steelblue;
+}
+
+.accordion .acctitle::after {
+  content: "\f067";
+
+  font-family: "Font Awesome 5 Free";
+
+  /* position: absolute;
+  top: 50%;
+  right: 0;
+
+  transform: translate(-100%, -50%); */
+
+  float: right;
+}
+
+/* ACTIVE */
+.accordion .acctitle.active {
+  background-color: steelblue;
+}
+
+.accordion .acctitle.active::after {
+  content: "\f068";
+}
+
+/* ACCCONTENT */
+.accordion .acccontent {
+  height: 0;
+
+  background-color: #f4f4f4;
+
+  /* 50px is enough and default */
+  text-indent: 50px;
+
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.5;
+
+  /* padding: 0 20px; */
+
+  overflow: hidden;
+}

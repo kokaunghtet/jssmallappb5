@@ -1,0 +1,43 @@
+@page {
+  /* size: portrait; */
+  /* size: landscape; */
+  /* size: auto; */
+
+  /* size: A4; */
+
+  /* size: Legal; */
+
+  /* size: A4 landscape; */
+
+  /* size: 4in 6in; */
+  size: 6in 6in;
+
+  margin: 0;
+
+}
+
+body {
+  color: steelblue;
+}
+
+header {
+  background-color: steelblue;
+  color: #fff;
+
+  position: static;
+
+  -webkit-print-color-adjust: exact;
+  /* print-color-adjust: exact; */
+}
+
+.print-btn {
+  display: none;
+}
+
+.content {
+  padding: 10px;
+  margin: 0 auto;
+
+  -webkit-print-color-adjust: exact;
+  /* print-color-adjust: exact; */
+}

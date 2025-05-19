@@ -1,0 +1,116 @@
+* {
+  font-family: sans-serif;
+
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+}
+
+video {
+  width: 100%;
+}
+
+.controls {
+  width: 100%;
+
+  margin-top: -10px;
+  padding: 12px 0;
+
+  background-color: #222;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctrl-btn {
+  margin: 0 5px;
+
+  background-color: transparent;
+  color: #fff;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.progress {
+  width: 70%;
+  height: 4px;
+
+  margin-right: 5px;
+
+  background-color: #f0f0f0;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+
+  background-color: steelblue;
+
+  border-radius: 5px;
+}
+
+.ctrl-btn .fa-play {
+  color: steelblue;
+}
+
+.ctrl-btn .fa-stop {
+  color: tomato;
+}
+
+.displaytime {
+  margin-left: 10px;
+}
+
+.openfullscreen,
+.closefullscreen {
+  cursor: pointer;
+}
+
+.closefullscreen {
+  display: none;
+}
+
+.panel {
+  padding: 0 30px;
+
+  background-color: #000;
+  color: #fff;
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: -1;
+
+  transition: all .5s ease-out;
+  opacity: 0;
+}
+
+.container:hover .panel {
+  top: 100%;
+  opacity: 1;
+}

@@ -1,0 +1,103 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 700px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  width: 80px;
+  padding: 5px 10px;
+  background-color: steelblue;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+}
+
+.btn:hover {
+  background-color: darkblue;
+}
+
+.month-btn,
+.year-btn {
+  position: relative;
+}
+
+.year-btn {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.dropdown {
+  display: none;
+  width: 100px;
+  background-color: #fff;
+  color: #000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 90%;
+  z-index: 1;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown .dropdown-item {
+  padding: 5px 0;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+
+/* .dropdown .dropdown-item:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+} */
+
+.dropdown .dropdown-item:hover {
+  background-color: steelblue;
+  color: #fff;
+  opacity: 1;
+}
+
+.caldates .days .dayname {
+  padding: 10px 20px;
+  background-color: steelblue;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.caldates .days .day {
+  width: 85px;
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid steelblue;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  float: left;
+}
+
+.caldays.days .day.blank {
+  background-color: #f4f4f4;
+  border: none;
+}

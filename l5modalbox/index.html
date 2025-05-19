@@ -1,0 +1,54 @@
+<!-- 27 October -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Modal Box</title>
+  <!-- Font awesome cdnjs link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- custom css -->
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Modal Signup Form</h2>
+    <button type="button" id="signup-btn">Sign Up</button>
+    <button type="button" id="fullscreen-btn">Open Fullscreen</button>
+    <button type="button" id="clsfullscreen-btn">Close Fullscreen</button>
+  </div>
+
+  <div id="signup-modal" class="modal">
+    <span class="btn-close" title="close-modal">&times;</span>
+    <form action="" method="">
+      <h2>Register Form</h2>
+
+      <div class="input-group">
+        <i class="fas fa-user icon"></i>
+        <input type="text" name="username" id="username" class="input-group-text" placeholder="Username"
+          autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" name="email" id="email" class="input-group-text" placeholder="Email" autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-key icon"></i>
+        <input type="password" name="password" id="password" class="input-group-text" placeholder="Password"
+          autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+
+    </form>
+  </div>
+
+
+  <script type="text/javascript" src="./app.js"></script>
+</body>
+
+</html>

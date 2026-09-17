@@ -1,32 +1,32 @@
 // Get UI
-var getmodal = document.querySelector(".modal");
-var getmodalimg = document.querySelector(".modal-img");
-var getcaption = document.querySelector(".caption");
-var getbtnclose = document.querySelector(".btn-close");
+let getModal = document.querySelector(".modal");
+let getModalImg = document.querySelector(".modal-img");
+let getCaption = document.querySelector(".caption");
+let getBtnClose = document.querySelector(".btn-close");
 
-function shownow(ele) {
+function showNow(ele) {
   // console.log(ele);
   // console.log(ele.target);
   // console.log(ele.target.src);
   // console.log(ele.target.alt);
 
-  getmodal.style.display = "block";
-  getmodalimg.src = ele.target.src;
-  getcaption.textContent = ele.target.alt;
+  getModal.style.display = "block";
+  getModalImg.src = ele.target.src;
+  getCaption.textContent = ele.target.alt;
 }
 
-// getbtnclose.addEventListener("click", function () {
-//   getmodal.style.display = "none";
+// getBtnClose.addEventListener("click", function () {
+//   getModal.style.display = "none";
 // });
 
-getbtnclose.onclick = function () {
-  getmodal.style.display = "none";
+getBtnClose.onclick = function () {
+  getModal.style.display = "none";
 };
 
 document.addEventListener("click", function (e) {
   // console.log(e.target);
 
-  if (e.target === getmodal) {
-    getmodal.style.display = "none";
+  if (e.target === getModal) {
+    getModal.style.display = "none";
   }
 });

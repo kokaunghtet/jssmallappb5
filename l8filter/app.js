@@ -21,19 +21,20 @@ getInput.addEventListener("keyup", filter);
 function filter() {
   let getlink;
 
-  let filter = this.value.toLowerCase();
+  let filter = this.value.toLowerCase(); // store the typed characters in this variable.
   // console.log(filter);
 
   for (x = 0; x < getlis.length; x++) {
     // console.log(x);
 
-    getlink = getlis[x].getElementsByTagName("a")[0];
+    getlink = getlis[x].getElementsByTagName("a")[0]; // store the a tag.
     // console.log(getlink);
 
     let getatext = getlink.textContent || getlink.innerHTML;
     // console.log(getatext);
     // console.log(getatext.toLowerCase());
 
+    // can use both includes() and indexOf()
     if (getatext.toLowerCase().indexOf(filter) > -1) {
       getlis[x].style.display = "";
     } else {

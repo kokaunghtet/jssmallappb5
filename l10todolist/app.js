@@ -1,45 +1,44 @@
 // GetUI
+let getForm = document.getElementById("form");
+let getTextBox = document.getElementById("textBox");
+let getUl = document.getElementById("list-group");
 
-var getform = document.getElementById("form");
-var gettextbox = document.getElementById("textbox");
-var getul = document.getElementById("list-group");
+getTextBox.focus();
 
-gettextbox.focus();
-
-getform.addEventListener("submit", (e) => {
+getForm.addEventListener("submit", (e) => {
   // console.log("Hey");
-  addnew();
+  addNew();
 
   e.preventDefault();
 });
 
-var gettodos = JSON.parse(localStorage.getItem("todos"));
-// console.log(gettodos);
+let getTodos = JSON.parse(localStorage.getItem("todos"));
+// console.log(getTodos);
 
-if (gettodos) {
-  gettodos.forEach((gettodo) => addnew(gettodo));
+if (getTodos) {
+  getTodos.forEach((gettodo) => addNew(gettodo));
 }
 
-function addnew(todo) {
-  let todotext = gettextbox.value;
-  // console.log(todotext);
+function addNew(todo) {
+  let todoText = getTextBox.value;
+  // console.log(todoText);
 
   if (todo) {
-    todotext = todo.text;
+    todoText = todo.text;
   }
 
-  if (todotext) {
-    const li = document.createElement("li");
+  if (todoText) {
+    const li = document.createElement("li"); // create new <li>
 
     if (todo && todo.done) {
       li.classList.add("completed");
     }
 
-    li.appendChild(document.createTextNode(todotext));
+    li.appendChild(document.createTextNode(todoText)); // add text to <li>
     // console.log(li);
-    getul.appendChild(li);
-    gettextbox.value = "";
-    gettextbox.focus();
+    getUl.appendChild(li); // add created new <li> to <ul>
+    getTextBox.value = "";
+    getTextBox.focus();
 
     updatelocalstorage();
 
@@ -57,7 +56,7 @@ function addnew(todo) {
 }
 
 function updatelocalstorage() {
-  var getalllis = document.querySelectorAll("li");
+  let getalllis = document.querySelectorAll("li");
 
   // console.log(getalllis);
 
@@ -72,7 +71,7 @@ function updatelocalstorage() {
     });
   });
 
-  console.log(todos);
+  // console.log(todos);
 
   localStorage.setItem("todos", JSON.stringify(todos));
 }

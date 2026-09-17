@@ -1,9 +1,9 @@
 // GET UI
-var getsignupbutton = document.getElementById("signup-btn"),
+let getsignupbutton = document.getElementById("signup-btn"),
   getfullscreenbtn = document.getElementById("fullscreen-btn"),
   getclsfullscreenbtn = document.getElementById("clsfullscreen-btn");
 
-var getmodal = document.getElementById("signup-modal"),
+let getmodal = document.getElementById("signup-modal"),
   getbtnclose = document.querySelector(".btn-close");
 
 getsignupbutton.addEventListener("click", function (e) {
@@ -25,7 +25,7 @@ window.onclick = function (e) {
 console.log(document);
 console.log(document.documentElement);
 
-var getdocele = document.documentElement;
+let getdocele = document.documentElement;
 
 getfullscreenbtn.addEventListener("click", function () {
   if (getdocele.requestFullscreen) {

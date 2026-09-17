@@ -1,6 +1,6 @@
 // Get UI
 
-var getModalBtn = document.getElementById("modal-btn"),
+let getModalBtn = document.getElementById("modal-btn"),
   getModalBox = document.getElementById("login-modal"),
   getBtnClose = document.querySelector(".btn-close");
 

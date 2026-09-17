@@ -2,13 +2,13 @@ body {
   font-family: sans-serif;
 }
 
-body>h1,
+body > h1,
 p {
   width: 80%;
   margin: 20px auto;
 }
 
-body>h1 {
+body > h1 {
   color: steelblue;
   letter-spacing: 2px;
 }
@@ -35,7 +35,6 @@ body>h1 {
 
   transition: 0.1s ease-in;
 }
-
 
 .accordion .acctitle:hover {
   background-color: steelblue;

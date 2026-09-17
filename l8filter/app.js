@@ -19,9 +19,9 @@ getsortzam2btn.addEventListener("click", sortingzam2);
 getInput.addEventListener("keyup", filter);
 
 function filter() {
-  var getlink;
+  let getlink;
 
-  var filter = this.value.toLowerCase();
+  let filter = this.value.toLowerCase();
   // console.log(filter);
 
   for (x = 0; x < getlis.length; x++) {
@@ -30,7 +30,7 @@ function filter() {
     getlink = getlis[x].getElementsByTagName("a")[0];
     // console.log(getlink);
 
-    var getatext = getlink.textContent || getlink.innerHTML;
+    let getatext = getlink.textContent || getlink.innerHTML;
     // console.log(getatext);
     // console.log(getatext.toLowerCase());
 
@@ -46,9 +46,9 @@ function filter() {
 function sortingazm1() {
   // console.log("method 1 a to z");
 
-  var lis = [];
+  let lis = [];
 
-  for (var i = 0; i < getlis.length; i++) {
+  for (let i = 0; i < getlis.length; i++) {
     // console.log(getlis[i]);
     // console.log(getlis[i].innerHTML);
     // console.log(getlis[i].textContent);
@@ -61,7 +61,7 @@ function sortingazm1() {
   // console.log(lis.reverse());
   // console.log(lis.sort().reverse());
 
-  var azlis = lis.sort();
+  let azlis = lis.sort();
 
   getul.innerHTML = "";
 
@@ -84,9 +84,9 @@ function sortingazm1() {
 function sortingzam1() {
   // console.log("method 1 z to a");
 
-  var lis = [];
+  let lis = [];
 
-  for (var i = 0; i < getlis.length; i++) {
+  for (let i = 0; i < getlis.length; i++) {
     // console.log(getlis[i]);
     // console.log(getlis[i].innerHTML);
     // console.log(getlis[i].textContent);
@@ -99,7 +99,7 @@ function sortingzam1() {
   // console.log(lis.reverse());
   // console.log(lis.sort().reverse());
 
-  var zalis = lis.sort().reverse();
+  let zalis = lis.sort().reverse();
 
   getul.innerHTML = "";
 
@@ -134,15 +134,15 @@ function sortingzam1() {
 
 // method 2
 function sortingazm2() {
-  var shouldswitch = true;
-  var switching = true;
+  let shouldswitch = true;
+  let switching = true;
 
   // console.log(getlis.length); // 29
 
   while (switching) {
     switching = false;
 
-    var i;
+    let i;
 
     for (i = 0; i < getlis.length - 1; i++) {
       // console.log(i); // 0 to 27
@@ -168,15 +168,15 @@ function sortingazm2() {
 }
 
 function sortingzam2() {
-  var shouldswitch = true;
-  var switching = true;
+  let shouldswitch = true;
+  let switching = true;
 
   // console.log(getlis.length); // 28
 
   while (switching) {
     switching = false;
 
-    var i;
+    let i;
 
     for (i = 0; i < getlis.length - 1; i++) {
       // console.log(i); // 0 to 27

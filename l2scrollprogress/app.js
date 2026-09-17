@@ -1,7 +1,7 @@
 // 8 September
 
 // get UI
-const getProgressBar = document.getElementById("progress-bar");
+const PROGRESS_BAR = document.getElementById("progress-bar");
 
 window.onscroll = function () {
   // console.log("hi");
@@ -25,7 +25,7 @@ function scrollPoint() {
   let getFinal = Math.ceil((getScrollTop / calcHeight) * 100);
   console.log(getFinal);
 
-  getProgressBar.style.width = `${getFinal}%`;
+  PROGRESS_BAR.style.width = `${getFinal}%`;
 }
 
 function printMe() {

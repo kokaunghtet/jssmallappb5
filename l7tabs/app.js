@@ -17,7 +17,7 @@ function gettab(evn, link) {
   // console.log(link);
 
   // Remove Active & Hide Tabpanel with btn-close
-  for (var x = 0; x < getTabLinks.length; x++) {
+  for (let x = 0; x < getTabLinks.length; x++) {
     // console.log(x); // 0 to 3
 
     // remove active

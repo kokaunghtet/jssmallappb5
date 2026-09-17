@@ -1,10 +1,10 @@
 // 29 September
 
-const getDownloadBtn = document.querySelector(".download-btn");
-const getProgressBar = document.querySelector(".progress-bar");
-const setUrl = "https://google.com";
+const DOWNLOAD_BTN = document.querySelector(".download-btn");
+const PROGRESS_BAR = document.querySelector(".progress-bar");
+const URL_LINK = "https://google.com";
 
-getDownloadBtn.addEventListener("click", function (e) {
+DOWNLOAD_BTN.addEventListener("click", function (e) {
   let setWidth = 0;
 
   let setInv = setInterval(progressInc, 30);
@@ -18,10 +18,10 @@ getDownloadBtn.addEventListener("click", function (e) {
       window.location.href = "https://google.com";
     } else {
       setWidth++;
-      getProgressBar.style.width = `${setWidth}%`;
-      getProgressBar.setAttribute("data-inc", `${setWidth}%`);
+      PROGRESS_BAR.style.width = `${setWidth}%`;
+      PROGRESS_BAR.setAttribute("data-inc", `${setWidth}%`);
 
-      getDownloadBtn.setAttribute("disabled", true);
+      DOWNLOAD_BTN.setAttribute("disabled", true);
     }
 
     // console.log(setWidth); //will not be able see no. in console if we write inside the scope

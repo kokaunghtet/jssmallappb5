@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: helvetica;
 }
 
 body {
@@ -125,6 +125,6 @@ h1 {
   outline: 0;
 }
 
-.imgbox.show>* {
+.imgbox.show > * {
   transform: translate(0px, 0px);
 }

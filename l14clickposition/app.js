@@ -1,17 +1,41 @@
 // Get UI
-const getmap = document.querySelector(".map-container");
+const getMap = document.querySelector(".map-container");
 
-let getsmallcolor = document.getElementById("smallcolor"),
-  getmediumcolor = document.getElementById("mediumcolor"),
-  getlargecolor = document.getElementById("largecolor");
+const colors = [
+  "red",
+  "green",
+  "blue",
+  "orange",
+  "pink",
+  "brown",
+  "skyblue",
+  "cyan",
+  "beige",
+  "black",
+  "white",
+  "yellow",
+  "violet",
+];
 
-var circleidx = 0;
+const selectIds = ["smallcolor", "mediumcolor", "largecolor"];
+const selects = selectIds.map((id) => document.getElementById(id));
 
-getmap.addEventListener("click", function (e) {
+selects.forEach((select) => {
+  colors.forEach((color) => {
+    const option = document.createElement("option");
+    option.value = color;
+    option.textContent = color;
+    select.appendChild(option);
+  });
+});
+
+let circleIndex = 0;
+
+getMap.addEventListener("click", function (e) {
   // console.log(" I am working ");
 
-  circleidx++;
-  // console.log(circleidx);
+  circleIndex++;
+  // console.log(circleIndex);
 
   // console.log(e.target);
 
@@ -20,29 +44,25 @@ getmap.addEventListener("click", function (e) {
     const oy = e.offsetY;
     // console.log(cx, cy);
 
-    const newspan = document.createElement("span");
-    newspan.id = circleidx;
-    newspan.classList.add("circle");
+    const newSpan = document.createElement("span");
+    newSpan.id = circleIndex;
+    newSpan.classList.add("circle");
 
-    newspan.style.left = `${ox}px`;
-    newspan.style.top = `${oy}px`;
+    newSpan.style.left = `${ox}px`;
+    newSpan.style.top = `${oy}px`;
 
-    // newspan.style.setProperty("--small-color", "darkblue");
-    // newspan.style.setProperty("--medium-color", "steelblue");
-    // newspan.style.setProperty("--large-color", "skyblue");
+    // newSpan.style.setProperty("--small-color", "darkblue");
+    // newSpan.style.setProperty("--medium-color", "steelblue");
+    // newSpan.style.setProperty("--large-color", "skyblue");
 
-    // console.log(newspan);
+    // console.log(newSpan);
 
-    if (
-      getsmallcolor.selectedIndex > 0 &&
-      getmediumcolor.selectedIndex > 0 &&
-      getlargecolor.selectedIndex > 0
-    ) {
-      newspan.style.setProperty("--small-color", getsmallcolor.value);
-      newspan.style.setProperty("--medium-color", getmediumcolor.value);
-      newspan.style.setProperty("--large-color", getlargecolor.value);
+    if (selects.every((s) => s.selectedIndex > 0)) {
+      newSpan.style.setProperty("--small-color", selects[0].value);
+      newSpan.style.setProperty("--medium-color", selects[1].value);
+      newSpan.style.setProperty("--large-color", selects[2].value);
     }
 
-    this.appendChild(newspan);
+    this.appendChild(newSpan);
   }
 });

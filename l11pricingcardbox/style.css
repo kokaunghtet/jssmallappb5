@@ -5,14 +5,14 @@
 }
 
 * {
-  font-family: ubuntu;
+  font-family: helvetica;
 }
 
 body {
   margin: 0;
   padding: 0;
 
-  height: 150vh;
+  height: 100vh;
 
   display: grid;
   place-items: center;
@@ -32,6 +32,7 @@ h2 {
 .toggle-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .toggle-checkbox {
@@ -66,15 +67,15 @@ h2 {
   left: 2px;
   top: 2.5px;
 
-  animation: offani .3s linear forwards;
+  animation: offani 0.3s linear forwards;
 }
 
-.toggle-checkbox:checked+.toggle-label {
+.toggle-checkbox:checked + .toggle-label {
   background-color: steelblue;
 }
 
-.toggle-checkbox:checked+.toggle-label .ball {
-  animation: onani .3s linear forwards;
+.toggle-checkbox:checked + .toggle-label .ball {
+  animation: onani 0.3s linear forwards;
 }
 
 @keyframes onani {
@@ -112,7 +113,7 @@ h2 {
 
 .price-box {
   width: 400px;
-  padding: 20px 0;
+  padding: 0 0 30px 0;
 
   background-color: #fff;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
@@ -193,7 +194,7 @@ h2 {
   font-size: 18px;
   text-decoration: none;
 
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .price-list .btn:hover {

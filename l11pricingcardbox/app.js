@@ -1,45 +1,47 @@
 // GET UI
 
-const getcheckbox = document.getElementById("toggle-checkbox");
-const getchecklabel = document.getElementById("toggle-label");
-const getbasic = document.getElementById("basic"),
-  getpro = document.getElementById("pro"),
-  getmst = document.getElementById("mst");
+const CHECK_BOX = document.getElementById("toggle-checkbox");
+const CHECK_LABEL = document.getElementById("toggle-label");
+const BASIC_PRICE = document.getElementById("basic"),
+  PRO_PRICE = document.getElementById("pro"),
+  MASTER_PRICE = document.getElementById("mst");
 
-// getcheckbox.addEventListener("click", function () {
+// CHECK_BOX.addEventListener("click", function () {
 //   // console.log("hi");
 
-//   if (getcheckbox.checked) {
+//   if (CHECK_BOX.checked) {
 //     console.log("yes");
-//     getbasic.textContent = 120;
-//     getpro.textContent = 240;
-//     getmst.textContent = 360;
+//     BASIC_PRICE.textContent = 120;
+//     PRO_PRICE.textContent = 240;
+//     MASTER_PRICE.textContent = 360;
 //   } else {
 //     console.log("no");
-//     // getbasic.textContent = 10;
-//     // getpro.textContent = 20;
-//     // getmst.textContent = 30;
+//     // BASIC_PRICE.textContent = 10;
+//     // PRO_PRICE.textContent = 20;
+//     // MASTER_PRICE.textContent = 30;
 
-//     [getbasic.textContent, getpro.textContent, getmst.textContent] = [
+//     [BASIC_PRICE.textContent, PRO_PRICE.textContent, MASTER_PRICE.textContent] = [
 //       10, 20, 30,
 //     ];
 //   }
 // });
 
-getchecklabel.addEventListener("click", function () {
+CHECK_LABEL.addEventListener("click", function () {
   // console.log("hi");
-  console.log("no");
-  // getbasic.textContent = 10;
-  // getpro.textContent = 20;
-  // getmst.textContent = 30;
+  // console.log("no");
+  // BASIC_PRICE.textContent = 10;
+  // PRO_PRICE.textContent = 20;
+  // MASTER_PRICE.textContent = 30;
 
-  [getbasic.textContent, getpro.textContent, getmst.textContent] = [10, 20, 30];
+  [BASIC_PRICE.textContent, PRO_PRICE.textContent, MASTER_PRICE.textContent] = [
+    10, 20, 30,
+  ];
 
-  if (getcheckbox.checked) {
+  if (CHECK_BOX.checked) {
   } else {
     console.log("yes");
-    getbasic.textContent = 120;
-    getpro.textContent = 240;
-    getmst.textContent = 360;
+    BASIC_PRICE.textContent = 120;
+    PRO_PRICE.textContent = 240;
+    MASTER_PRICE.textContent = 360;
   }
 });

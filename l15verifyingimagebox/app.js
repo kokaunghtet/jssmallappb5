@@ -34,9 +34,6 @@ const database = [
   },
 ];
 
-// console.log(database);
-// console.log(database[0].b);
-
 const getContainer = document.querySelector(".container");
 const getQuestion = document.querySelector(".question");
 const getInputs = document.querySelectorAll(".answer"); // NodeList
@@ -126,5 +123,3 @@ function doubleclick() {
     }
   }
 }
-
-// 1DB

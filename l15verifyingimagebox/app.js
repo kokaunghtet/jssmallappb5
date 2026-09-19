@@ -41,12 +41,12 @@ const getContainer = document.querySelector(".container");
 const getQuestion = document.querySelector(".question");
 const getInputs = document.querySelectorAll(".answer"); // NodeList
 
-const geta_img = document.getElementById("a_img"),
-  getb_img = document.getElementById("b_img"),
-  getc_img = document.getElementById("c_img"),
-  getd_img = document.getElementById("d_img");
+const getAImage = document.getElementById("a_img"),
+  getBImage = document.getElementById("b_img"),
+  getCImage = document.getElementById("c_img"),
+  getDImage = document.getElementById("d_img");
 
-const getBtn = document.querySelector(".btn");
+const getNextBtn = document.querySelector(".next-btn");
 
 let currentIdx = 0;
 let score = 0;
@@ -56,37 +56,29 @@ startQuestion();
 function startQuestion() {
   removeSelected();
 
-  const currentQes = database[currentIdx];
+  const currentQuestion = database[currentIdx];
 
-  getQuestion.textContent = currentQes.question;
-  geta_img.src = currentQes.a;
-  getb_img.src = currentQes.b;
-  getc_img.src = currentQes.c;
-  getd_img.src = currentQes.d;
+  getQuestion.textContent = currentQuestion.question;
+  getAImage.src = currentQuestion.a;
+  getBImage.src = currentQuestion.b;
+  getCImage.src = currentQuestion.c;
+  getDImage.src = currentQuestion.d;
 }
 
 function getSingleInput() {
   let answer;
 
-  getInputs.forEach(function (getInput) {
-    // console.log(getInput);
-    // console.log(getInput.id);
-
-    if (getInput.checked) {
-      // console.log(getInput.id);
-      answer = getInput.id;
+  getInputs.forEach((input) => {
+    if (input.checked) {
+      answer = input.id;
     }
   });
 
-  // console.log(answer);
   return answer;
 }
 
-getBtn.addEventListener("click", function () {
-  // console.log("I'm working");
-
+getNextBtn.addEventListener("click", function () {
   const getAnswer = getSingleInput();
-  // console.log(getAnswer);
 
   if (getAnswer) {
     // Question 0
@@ -96,14 +88,11 @@ getBtn.addEventListener("click", function () {
     }
 
     currentIdx++;
-    // console.log(currentIdx);
 
     // Question 1
     if (currentIdx < database.length) {
       startQuestion();
     } else {
-      // console.log(score);
-
       getContainer.innerHTML = `
         <h3>Total Score: ${score * 25}</h3>
         <h4>You answered correctly at ${score}/${database.length}</h4>
@@ -121,20 +110,13 @@ getBtn.addEventListener("click", function () {
 });
 
 function removeSelected() {
-  getInputs.forEach(function (getInput) {
-    return (getInput.checked = false);
-  });
+  getInputs.forEach((input) => (input.checked = false));
 }
 
 let clicktimes = 0;
 function doubleclick() {
-  // console.log("Hey");
-
-  // console.log(clicktimes);
-
   if (clicktimes === 0) {
     clicktimes = Date.now();
-    // console.log(clicktimes);
   } else {
     if (Date.now() - clicktimes < 1000) {
       window.location.reload();

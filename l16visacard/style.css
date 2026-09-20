@@ -36,7 +36,6 @@ body {
   box-shadow: 0 0 50px rgba(0, 0, 255, 0.3);
 }
 
-
 .logo .visalogo {
   width: 100px;
 
@@ -108,11 +107,11 @@ input[id="card-digit"] {
   left: -100%;
   bottom: 0;
 
-  transition: left .5s ease-in;
+  transition: left 0.5s ease-in;
 }
 
-.card-number input[id="card-digit"]:hover+.underline,
-.card-number input[id="card-digit"]:focus+.underline {
+.card-number input[id="card-digit"]:hover + .underline,
+.card-number input[id="card-digit"]:focus + .underline {
   left: 0;
 }
 
@@ -132,8 +131,8 @@ input[id="card-name"] {
   height: 25px;
 }
 
-.card-holder input[id="card-name"]:hover+.underline,
-.card-holder input[id="card-name"]:focus+.underline {
+.card-holder input[id="card-name"]:hover + .underline,
+.card-holder input[id="card-name"]:focus + .underline {
   left: 0;
 }
 
@@ -148,8 +147,8 @@ input[id="card-name"] {
   overflow: hidden;
 }
 
-.card-date input[id="card-exp"]:hover+.underline,
-.card-date input[id="card-exp"]:focus+.underline {
+.card-date input[id="card-exp"]:hover + .underline,
+.card-date input[id="card-exp"]:focus + .underline {
   left: 0;
 }
 
@@ -163,7 +162,7 @@ input[id="card-name"] {
   overflow: hidden;
 }
 
-.card-code input[id="card-ccv"]:hover+.underline,
-.card-code input[id="card-ccv"]:focus+.underline {
+.card-code input[id="card-ccv"]:hover + .underline,
+.card-code input[id="card-ccv"]:focus + .underline {
   left: 0;
 }

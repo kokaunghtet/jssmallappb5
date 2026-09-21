@@ -23,7 +23,7 @@ span.txtani {
   /* border-right: 2px solid #bbb; */
 
   animation-name: mycursorani;
-  animation-duration: .8s;
+  animation-duration: 0.8s;
   animation-iteration-count: infinite;
 }
 

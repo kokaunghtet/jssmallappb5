@@ -4,24 +4,14 @@ const colors = ["red", "skyblue", "violet", "yellow"];
 const gettxtani = document.querySelector(".txtani");
 const gettxtlights = document.querySelectorAll(".text-light");
 
-// console.log(languages);
-// console.log(languages[0]); // give index get value
-//
-// console.log(languages.indexOf("Reactjs")); // give value get index  1
-// console.log(languages.indexOf("Laravel")); // give value get index  3
-// console.log(languages.indexOf("laravel")); // give value get index -1
-
-// console.log(colors[languages.indexOf("Reactjs")]); // skyblue
-// console.log(colors[languages.indexOf("Vuejs")]); // violet
-
 function* generator() {
-  var idx = 0;
+  let i = 0;
 
   while (true) {
-    yield idx++;
+    yield i++;
 
-    if (idx > languages.length - 1) {
-      idx = 0;
+    if (i > languages.length - 1) {
+      i = 0;
     }
   }
 }
@@ -30,14 +20,7 @@ const genfun = generator();
 // console.log(genfun.next()); // {value: 0, done: false}
 // console.log(genfun.next().value); // 0
 // console.log(genfun.next().value); // 1
-// console.log(genfun.next().value); // 2
-// console.log(genfun.next().value); // 3
-// console.log(genfun.next().value); // 0
 
-// console.log(languages[genfun.next().value]); // Nodejs
-// console.log(languages[genfun.next().value]); // Reactjs
-// console.log(languages[genfun.next().value]); // Vuejs
-// console.log(languages[genfun.next().value]); // Laravel
 // console.log(languages[genfun.next().value]); // Nodejs
 // console.log(languages[genfun.next().value]); // Reactjs
 
@@ -85,7 +68,7 @@ function deletewords() {
     if (getlastidx >= 0) {
       gettxtani.innerHTML = gettxtani.innerHTML.substring(
         0,
-        gettxtani.innerHTML.length - 1
+        gettxtani.innerHTML.length - 1,
       );
       getlastidx--;
     } else {

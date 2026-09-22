@@ -1,77 +1,77 @@
 // Get UI
-const getaudioscreen = document.getElementById("audioscreen");
-const playbtn = document.getElementById("play"),
-  prevbtn = document.getElementById("prev"),
-  nextbtn = document.getElementById("next"),
-  stopbtn = document.getElementById("stop");
-const getprogress = document.getElementById("progress"),
-  getprogressbar = document.getElementById("progress-bar");
-const getvolprogress = document.getElementById("volumeprogress");
-const getdisplaytime = document.getElementById("displaytime");
+const getAudioScreen = document.getElementById("audioScreen");
+const playBtn = document.getElementById("play"),
+  prevBtn = document.getElementById("prev"),
+  nextBtn = document.getElementById("next"),
+  stopBtn = document.getElementById("stop");
+const getProgress = document.getElementById("progress"),
+  getProgressBar = document.getElementById("progress-bar");
+const getVolumneProgress = document.getElementById("volumeProgress");
+const getDisplayTime = document.getElementById("displayTime");
 
 const audios = ["sample1", "sample2", "sample3"];
 
-let curridx = 0;
-// console.log(audios[curridx]); // sample1
+let currentIndex = 0;
+// console.log(audios[currentIndex]); // sample1
 
-// loadaudio(audios[curridx]);
+// loadAudio(audios[currentIndex]);
 
-function loadaudio(audio) {
-  getaudioscreen.src = `./source/${audio}.mp3`;
+function loadAudio(audio) {
+  getAudioScreen.src = `./source/${audio}.mp3`;
 }
 
-function playaudio() {
-  playbtn.querySelector("i.fas").classList.remove("fa-play");
-  playbtn.querySelector("i.fas").classList.add("fa-pause");
+function playAudio() {
+  playBtn.querySelector("i.fas").classList.remove("fa-play");
+  playBtn.querySelector("i.fas").classList.add("fa-pause");
 
-  getaudioscreen.play(); // default function
+  getAudioScreen.play(); // default function
 }
 
-function pauseaudio() {
-  playbtn.querySelector("i.fas").classList.remove("fa-pause");
-  playbtn.querySelector("i.fas").classList.add("fa-play");
+function pauseAudio() {
+  playBtn.querySelector("i.fas").classList.remove("fa-pause");
+  playBtn.querySelector("i.fas").classList.add("fa-play");
 
-  getaudioscreen.pause(); // default function
+  getAudioScreen.pause(); // default function
 }
 
-function playandpauseaudio() {
+function playAndPauseAudio() {
   // paused default keyword for audio/video
-  if (getaudioscreen.paused) {
-    getaudioscreen.play();
+  if (getAudioScreen.paused) {
+    getAudioScreen.play();
   } else {
-    getaudioscreen.pause();
+    getAudioScreen.pause();
   }
 }
 
-function nextaudio() {
-  curridx++;
+function nextAudio() {
+  currentIndex++;
 
   // 0 1 2             3-1 = 2
-  if (curridx > audios.length - 1) {
-    curridx = 0;
+  if (currentIndex > audios.length - 1) {
+    currentIndex = 0;
   }
 
-  // console.log(curridx);
+  // console.log(currentIndex);
 
-  loadaudio(audios[curridx]);
-  playaudio();
+  loadAudio(audios[currentIndex]);
+  playAudio();
 }
 
-function prevaudio() {
-  curridx--;
+function prevAudio() {
+  currentIndex--;
 
   // 0 1 2
-  if (curridx < 0) {
-    curridx = audios.length - 1;
+  if (currentIndex < 0) {
+    currentIndex = audios.length - 1;
   }
 
-  // console.log(curridx);
+  // console.log(currentIndex);
 
-  loadaudio(audios[curridx]);
-  playaudio();
+  loadAudio(audios[currentIndex]);
+  playAudio();
 }
 
-function updateprogress(e) {
+function updateProgress(e) {
   // console.log(e.target);
 
   // console.log(e.target.duration);
@@ -89,12 +89,12 @@ function updateprogress(e) {
   // console.log(duration, currentTime);
 
   if (currentTime === 0) {
-    getprogressbar.style.width = "0%";
+    getProgressBar.style.width = "0%";
   } else {
     const progresspercent = (currentTime / duration) * 100;
     // console.log(progresspercent);
 
-    getprogressbar.style.width = `${progresspercent}%`;
+    getProgressBar.style.width = `${progresspercent}%`;
   }
 
   // // forward
@@ -110,29 +110,29 @@ function updateprogress(e) {
   // console.log(minutevalue);
   const secondvalue = secs.toString().padStart(2, "0");
 
-  getdisplaytime.innerText = `${minutevalue}:${secondvalue}`;
+  getDisplayTime.innerText = `${minutevalue}:${secondvalue}`;
 }
 
-function stopaudio() {
-  getaudioscreen.currentTime = 0;
-  getprogressbar.style.width = `0%`;
+function stopAudio() {
+  getAudioScreen.currentTime = 0;
+  getProgressBar.style.width = `0%`;
 
-  pauseaudio();
+  pauseAudio();
 }
 
-function volumecontrol() {
-  // console.log(getvolprogress.value);
-  // console.log(getaudioscreen.volume); // 1
+function volumeControl() {
+  // console.log(getVolumneProgress.value);
+  // console.log(getAudioScreen.volume); // 1
 
   // volume default key from audio/video
-  getaudioscreen.volume = getvolprogress.value / 100;
+  getAudioScreen.volume = getVolumneProgress.value / 100;
 
   // 1 is default (100%)
   // 0.5 half valume (50%)
   // 0 is mute (0%)
 }
 
-function progressaudioclick(e) {
+function progressAudioClick(e) {
   // console.log(e.target);
   // console.log(this);
 
@@ -142,22 +142,22 @@ function progressaudioclick(e) {
   const clickx = e.offsetX;
   // console.log(clickx);
 
-  const getduration = getaudioscreen.duration;
+  const getduration = getAudioScreen.duration;
   // console.log(getduration);
 
-  getaudioscreen.currentTime = (clickx / width) * getduration;
-  console.log(getaudioscreen.currentTime);
+  getAudioScreen.currentTime = (clickx / width) * getduration;
+  console.log(getAudioScreen.currentTime);
 }
 
-getaudioscreen.addEventListener("timeupdate", updateprogress);
-getaudioscreen.addEventListener("play", playaudio);
-getaudioscreen.addEventListener("pause", pauseaudio);
+getAudioScreen.addEventListener("timeupdate", updateProgress);
+getAudioScreen.addEventListener("play", playAudio);
+getAudioScreen.addEventListener("pause", pauseAudio);
 
-playbtn.addEventListener("click", playandpauseaudio);
-nextbtn.addEventListener("click", nextaudio);
-prevbtn.addEventListener("click", prevaudio);
-stopbtn.addEventListener("click", stopaudio);
-getvolprogress.addEventListener("click", volumecontrol);
-getprogress.addEventListener("click", progressaudioclick);
+playBtn.addEventListener("click", playAndPauseAudio);
+nextBtn.addEventListener("click", nextAudio);
+prevBtn.addEventListener("click", prevAudio);
+stopBtn.addEventListener("click", stopAudio);
+getVolumneProgress.addEventListener("click", volumeControl);
+getProgress.addEventListener("click", progressAudioClick);
 
 // 29AD

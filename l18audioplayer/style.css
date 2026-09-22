@@ -1,6 +1,5 @@
 * {
-  font-family: sans-serif;
-
+  font-family: helvetica;
   box-sizing: border-box;
 }
 
@@ -29,9 +28,14 @@ body {
   background-color: #222;
   color: #fff;
 
+  border: 2px solid gray;
+  border-radius: 10px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  box-shadow: 5px 5px 16px rgba(0, 0, 0, 0.5);
 }
 
 .ctrl-btn {
@@ -64,9 +68,8 @@ body {
   background-color: steelblue;
 }
 
-.volumeprogress {
-  margin: 0 1px;
-
+.volume-progress {
+  margin: 0 10px;
 }
 
 .ctrl-btn .fa-play {
@@ -77,6 +80,6 @@ body {
   color: tomato;
 }
 
-.displaytime {
+.display-time {
   padding-right: 10px;
 }

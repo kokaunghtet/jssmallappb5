@@ -1,77 +1,77 @@
 // Get UI
-const getcontainer = document.querySelector(".container");
-const getvideoscreen = document.getElementById("videoscreen");
-const playbtn = document.getElementById("play"),
-  prevbtn = document.getElementById("prev"),
-  nextbtn = document.getElementById("next"),
-  stopbtn = document.getElementById("stop");
-const getprogress = document.getElementById("progress"),
-  getprogressbar = document.getElementById("progress-bar");
-const getdisplaytime = document.getElementById("displaytime");
-const gettitle = document.getElementById("title");
-const getopenfullscreen = document.querySelector(".openfullscreen"),
-  getclosefullscreen = document.querySelector(".closefullscreen");
+const getContainer = document.querySelector(".container");
+const getVideoScreen = document.getElementById("videoscreen");
+const playBtn = document.getElementById("play"),
+  prevBtn = document.getElementById("prev"),
+  nextBtn = document.getElementById("next"),
+  stopBtn = document.getElementById("stop");
+const getProgress = document.getElementById("progress"),
+  getProgressBar = document.getElementById("progress-bar");
+const getDisplayTime = document.getElementById("displaytime");
+const getTitle = document.getElementById("title");
+const getOpenFullscreen = document.querySelector(".openfullscreen"),
+  getCloseFullscreen = document.querySelector(".closefullscreen");
 
 const videos = ["samplevideo1", "samplevideo2"];
-let curridx = 0;
+let currIdx = 0;
 
-loadvideo(videos[curridx]);
+loadVideo(videos[currIdx]);
 
-function loadvideo(video) {
-  getvideoscreen.src = `./source/${video}.mp4`;
-  gettitle.textContent = video;
+function loadVideo(video) {
+  getVideoScreen.src = `./source/${video}.mp4`;
+  getTitle.textContent = video;
 }
 
-function playvideo() {
-  playbtn.querySelector("i.fas").classList.remove("fa-play");
-  playbtn.querySelector("i.fas").classList.add("fa-pause");
+function playVideo() {
+  playBtn.querySelector("i.fas").classList.remove("fa-play");
+  playBtn.querySelector("i.fas").classList.add("fa-pause");
 
-  getvideoscreen.play();
+  getVideoScreen.play();
 }
 
-function pausevideo() {
-  playbtn.querySelector("i.fas").classList.remove("fa-pause");
-  playbtn.querySelector("i.fas").classList.add("fa-play");
+function pauseVideo() {
+  playBtn.querySelector("i.fas").classList.remove("fa-pause");
+  playBtn.querySelector("i.fas").classList.add("fa-play");
 
-  getvideoscreen.pause();
+  getVideoScreen.pause();
 }
 
-function playpausevideo() {
-  if (getvideoscreen.paused) {
-    playvideo();
+function playPauseVideo() {
+  if (getVideoScreen.paused) {
+    playVideo();
   } else {
-    pausevideo();
+    pauseVideo();
   }
 }
 
-function nextvideo() {
-  curridx += 1;
+function nextVideo() {
+  currIdx += 1;
 
-  if (curridx > videos.length - 1) {
-    curridx = 0;
+  if (currIdx > videos.length - 1) {
+    currIdx = 0;
   }
 
-  loadvideo(videos[curridx]);
-  playvideo();
+  loadVideo(videos[currIdx]);
+  playVideo();
 }
 
-function previousvideo() {
-  curridx -= 1;
+function previousVideo() {
+  currIdx -= 1;
 
-  if (curridx < 0) {
-    curridx = videos.length - 1;
+  if (currIdx < 0) {
+    currIdx = videos.length - 1;
   }
 
-  loadvideo(videos[curridx]);
-  playvideo();
+  loadVideo(videos[currIdx]);
+  playVideo();
 }
 
-function stopvideo() {
-  getvideoscreen.currentTime = 0;
-  pausevideo();
+function stopVideo() {
+  getVideoScreen.currentTime = 0;
+  pauseVideo();
 }
 
-function updateprogress(e) {
+function updateProgress(e) {
   // const currentTime = e.target.currentTime;
   // const duration = e.target.duration;
   // console.log(currentTime, duration);
@@ -90,57 +90,57 @@ function updateprogress(e) {
   // console.log(currentTime, duration);
 
   if (currentTime === 0) {
-    getprogressbar.style.width = `0%`;
+    getProgressBar.style.width = `0%`;
   } else {
-    let progresspercent = (currentTime / duration) * 100;
-    getprogressbar.style.width = `${progresspercent}%`;
+    let progressPercent = (currentTime / duration) * 100;
+    getProgressBar.style.width = `${progressPercent}%`;
   }
 
-  getmins = Math.floor(getvideoscreen.currentTime / 60);
-  getsecs = Math.floor(getvideoscreen.currentTime % 60);
+  getMins = Math.floor(getVideoScreen.currentTime / 60);
+  getSecs = Math.floor(getVideoScreen.currentTime % 60);
 
-  // if (getmins < 10) {
-  //   getmins = "0" + getmins;
-  //   // getmins = "0" + String(getmins);
+  // if (getMins < 10) {
+  //   getMins = "0" + getMins;
+  //   // getMins = "0" + String(getMins);
   // }
 
-  // if (getsecs < 10) {
-  //   // getsecs = "0" + getsecs;
-  //   getsecs = "0" + String(getsecs);
+  // if (getSecs < 10) {
+  //   // getSecs = "0" + getSecs;
+  //   getSecs = "0" + String(getSecs);
   // }
 
-  let minvalue = getmins.toString().padStart(2, "0");
-  let secvalue = getsecs.toString().padStart(2, "0");
-  // console.log(minvalue, secvalue);
+  let minValue = getMins.toString().padStart(2, "0");
+  let secValue = getSecs.toString().padStart(2, "0");
+  // console.log(minValue, secValue);
 
-  getdisplaytime.innerText = `${minvalue}:${secvalue}`;
+  getDisplayTime.innerText = `${minValue}:${secValue}`;
 }
 
-function setprogress(e) {
-  const getclientWidth = e.target.clientWidth;
-  const getclickx = e.offsetX;
-  const getduration = getvideoscreen.duration;
-  // console.log(getclickx, getclientWidth, getduration);
+function setProgress(e) {
+  const clientWidth = e.target.clientWidth;
+  const clickX = e.offsetX;
+  const duration = getVideoScreen.duration;
+  // console.log(clickX, clientWidth, duration);
 
-  getvideoscreen.currentTime = (getclickx / getclientWidth) * getduration;
+  getVideoScreen.currentTime = (clickX / clientWidth) * duration;
 }
 
-function openfullscreen() {
-  if (getcontainer.requestFullscreen) {
-    getcontainer.requestFullscreen();
-  } else if (getcontainer.mozRequestFullscreen) {
-    getcontainer.mozRequestFullscreen();
-  } else if (getcontainer.webkitRequestFullscreen) {
-    getcontainer.webkitRequestFullscreen();
-  } else if (getcontainer.msRequestFullscreen) {
-    getcontainer.msRequestFullscreen();
+function openFullscreen() {
+  if (getContainer.requestFullscreen) {
+    getContainer.requestFullscreen();
+  } else if (getContainer.mozRequestFullscreen) {
+    getContainer.mozRequestFullscreen();
+  } else if (getContainer.webkitRequestFullscreen) {
+    getContainer.webkitRequestFullscreen();
+  } else if (getContainer.msRequestFullscreen) {
+    getContainer.msRequestFullscreen();
   }
 
-  getopenfullscreen.style.display = "none";
-  getclosefullscreen.style.display = "inline-block";
+  getOpenFullscreen.style.display = "none";
+  getCloseFullscreen.style.display = "inline-block";
 }
 
-function closefullscreen() {
+function closeFullscreen() {
   if (document.exitFullscreen) {
     document.exitFullscreen();
   } else if (document.mozCancelFullscreen) {
@@ -151,18 +151,18 @@ function closefullscreen() {
     document.msExitFullscreen();
   }
 
-  getclosefullscreen.style.display = "none";
-  getopenfullscreen.style.display = "inline-block";
+  getCloseFullscreen.style.display = "none";
+  getOpenFullscreen.style.display = "inline-block";
 }
 
-getvideoscreen.addEventListener("timeupdate", updateprogress);
-getvideoscreen.addEventListener("ended", nextvideo);
-playbtn.addEventListener("click", playpausevideo);
-nextbtn.addEventListener("click", nextvideo);
-prevbtn.addEventListener("click", previousvideo);
-stopbtn.addEventListener("click", stopvideo);
-getprogress.addEventListener("click", setprogress);
-getopenfullscreen.addEventListener("click", openfullscreen);
-getclosefullscreen.addEventListener("click", closefullscreen);
+getVideoScreen.addEventListener("timeupdate", updateProgress);
+getVideoScreen.addEventListener("ended", nextVideo);
+playBtn.addEventListener("click", playPauseVideo);
+nextBtn.addEventListener("click", nextVideo);
+prevBtn.addEventListener("click", previousVideo);
+stopBtn.addEventListener("click", stopVideo);
+getProgress.addEventListener("click", setProgress);
+getOpenFullscreen.addEventListener("click", openFullscreen);
+getCloseFullscreen.addEventListener("click", closeFullscreen);
 
 // 5VD

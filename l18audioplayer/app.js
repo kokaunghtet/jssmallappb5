@@ -91,10 +91,10 @@ function updateProgress(e) {
   if (currentTime === 0) {
     getProgressBar.style.width = "0%";
   } else {
-    const progresspercent = (currentTime / duration) * 100;
-    // console.log(progresspercent);
+    const progressPercent = (currentTime / duration) * 100;
+    // console.log(progressPercent);
 
-    getProgressBar.style.width = `${progresspercent}%`;
+    getProgressBar.style.width = `${progressPercent}%`;
   }
 
   // // forward
@@ -106,11 +106,11 @@ function updateProgress(e) {
   const secs = Math.floor((duration - currentTime) % 60);
   // console.log(typeof mins); // number
 
-  const minutevalue = mins.toString().padStart(2, "0"); // if u use padStart() concat number must be string.
-  // console.log(minutevalue);
+  const minuteValue = mins.toString().padStart(2, "0"); // if you use padStart() concat number must be string.
+  // console.log(minuteValue);
   const secondvalue = secs.toString().padStart(2, "0");
 
-  getDisplayTime.innerText = `${minutevalue}:${secondvalue}`;
+  getDisplayTime.innerText = `${minuteValue}:${secondvalue}`;
 }
 
 function stopAudio() {

@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: helvetica;
 
   box-sizing: border-box;
 }
@@ -24,16 +24,17 @@ body {
 
 video {
   width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 
 .controls {
   width: 100%;
 
-  margin-top: -10px;
-  padding: 12px 0;
+  padding: 22px 0;
 
   background-color: #222;
   color: #fff;
+  border-radius: 0 0 20px 20px;
 
   display: flex;
   justify-content: center;
@@ -97,6 +98,7 @@ video {
 
 .panel {
   padding: 0 30px;
+  border-radius: 10px;
 
   background-color: #000;
   color: #fff;
@@ -111,6 +113,6 @@ video {
 }
 
 .container:hover .panel {
-  top: 100%;
+  top: 102%;
   opacity: 1;
 }

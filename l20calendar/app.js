@@ -1,11 +1,11 @@
 // Get UI
-const getcurmonth = document.getElementById("curmonth");
-const getcuryear = document.getElementById("curyear");
-const getuimonths = document.getElementById("months");
-const getuiyears = document.getElementById("years");
-const getcaldays = document.getElementById("caldays");
-const getmonthbtn = document.querySelector(".month-btn");
-const getyearbtn = document.querySelector(".year-btn");
+const getCurMonth = document.getElementById("curMonth");
+const getCurYear = document.getElementById("curYear");
+const getUIMonths = document.getElementById("months");
+const getUIYears = document.getElementById("years");
+const getCalDays = document.getElementById("calDays");
+const getMonthBtn = document.querySelector(".month-btn");
+const getYearBtn = document.querySelector(".year-btn");
 
 const months = [
   "Jan",
@@ -21,205 +21,205 @@ const months = [
   "Nov",
   "Dec",
 ];
-let startyear = 2020;
-let endyear = 2030;
+let startYear = 2020;
+let endYear = 2030;
 
 let month, year;
 
 window.addEventListener("load", function () {
   // console.log("Hey I am working");
 
-  let getday = new Date();
-  month = getday.getMonth();
-  year = getday.getFullYear();
+  let getDay = new Date();
+  month = getDay.getMonth();
+  year = getDay.getFullYear();
 
-  // console.log(getday); // Fri Apr 19 2024 20:49:53 GMT+0630 (Myanmar Time)
+  // console.log(getDay); // Fri Apr 19 2024 20:49:53 GMT+0630 (Myanmar Time)
   // console.log(month); // 3
   // console.log(year); // 2024
 
-  getcurmonth.textContent = months[month];
-  getcuryear.textContent = year;
+  getCurMonth.textContent = months[month];
+  getCurYear.textContent = year;
 
-  initmonths();
-  inityears();
-  initdays();
+  initMonths();
+  initYears();
+  initDays();
 });
 
-function initmonths() {
+function initMonths() {
   // console.log("I am month");
 
-  getuimonths.innerHTML = "";
+  getUIMonths.innerHTML = "";
 
   // <div class="dropdown-item">Jan </div>
 
   for (let x = 0; x < months.length; x++) {
     // console.log(x); // 0 to 11
 
-    const newdiv = document.createElement("div");
-    newdiv.textContent = months[x];
-    newdiv.classList.add("dropdown-item");
+    const newDiv = document.createElement("div");
+    newDiv.textContent = months[x];
+    newDiv.classList.add("dropdown-item");
 
     // console.log(x); // 0 to 11
 
-    // newdiv.addEventListener("click", function () {
+    // newDiv.addEventListener("click", function () {
     // Method I
     // console.log(x); // current month index
     // console.log(months[x]);
     // month = x;
-    // getcurmonth.textContent = months[x];
-    // initdays();
+    // getCurMonth.textContent = months[x];
+    // initDays();
     // ----------
     // Method II
     // console.log(this);
     // console.log(this.textContent);
     // month = months.indexOf(this.textContent);
     // console.log(month);
-    // getcurmonth.textContent = months[month];
-    // initdays();
+    // getCurMonth.textContent = months[month];
+    // initDays();
     // });
 
     // Method III
-    newdiv.onclick = updatedaysmonth(x);
+    newDiv.onclick = updateDaysMonth(x);
 
-    // console.log(newdiv);
-    getuimonths.appendChild(newdiv);
+    // console.log(newDiv);
+    getUIMonths.appendChild(newDiv);
   }
 }
 
-function updatedaysmonth(idx) {
+function updateDaysMonth(idx) {
   // console.log(idx); // 0 to 11
 
-  let selectmonth = idx;
-  // console.log(selectmonth); // 0 to 11
+  let selectMonth = idx;
+  // console.log(selectMonth); // 0 to 11
 
   return function () {
-    month = selectmonth;
+    month = selectMonth;
     // console.log(month);
 
-    getcurmonth.textContent = months[month];
-    initdays();
+    getCurMonth.textContent = months[month];
+    initDays();
   };
 }
 
-function inityears() {
+function initYears() {
   // console.log("I am year");
 
-  getuiyears.innerHTML = "";
+  getUIYears.innerHTML = "";
 
-  for (let x = startyear; x <= endyear; x++) {
+  for (let x = startYear; x <= endYear; x++) {
     // console.log(x); // 2020 to 2030
 
-    const newdiv = document.createElement("div");
-    newdiv.textContent = x;
-    newdiv.classList.add("dropdown-item");
+    const newDiv = document.createElement("div");
+    newDiv.textContent = x;
+    newDiv.classList.add("dropdown-item");
 
-    // newdiv.addEventListener("click", function () {
+    // newDiv.addEventListener("click", function () {
     // Method 1
     // console.log(x); // 2020, 2021, etc...
     // year = x;
-    // getcuryear.textContent = year;
-    // initdays();
+    // getCurYear.textContent = year;
+    // initDays();
     // ----------
     // Method II
     // console.log(this);
     // console.log(this.textContent); // 2020, 2021, etc...
     // year = this.textContent;
-    // getcuryear.textContent = year;
-    // initdays();
+    // getCurYear.textContent = year;
+    // initDays();
     // ----------
     // });
 
     // Method III
-    // newdiv.onclick = updateyearsbyyear(x);
+    // newDiv.onclick = updateYearsByYear(x);
 
     // Method IV
-    // newdiv.onclick = () => {
+    // newDiv.onclick = () => {
     //   console.log(x); // 2020 to 2030
     //   year = x;
-    //   getcuryear.textContent = year;
-    //   initdays();
+    //   getCurYear.textContent = year;
+    //   initDays();
     // };
 
     // Method V
     // Self-invoking Function
-    newdiv.onclick = (function () {
+    newDiv.onclick = (function () {
       // console.log(x); // 2020 to 2030
 
-      let selectyear = x;
-      // console.log(selectyear); // 2020 to 2030
+      let selectYear = x;
+      // console.log(selectYear); // 2020 to 2030
 
       return function () {
-        year = selectyear;
+        year = selectYear;
         // console.log(year);
-        getcuryear.textContent = year;
-        initdays();
+        getCurYear.textContent = year;
+        initDays();
       };
     })();
 
-    // console.log(newdiv);
-    getuiyears.appendChild(newdiv);
+    // console.log(newDiv);
+    getUIYears.appendChild(newDiv);
   }
 }
 
-// function updateyearsbyyear(idx) {
+// function updateYearsByYear(idx) {
 //   // console.log(idx); // 2020 to 2030
-//   let selectyear = idx;
-//   // console.log(selectyear); // 2020 to 2030
+//   let selectYear = idx;
+//   // console.log(selectYear); // 2020 to 2030
 //   return function () {
-//     year = selectyear;
+//     year = selectYear;
 //     // console.log(year);
-//     getcuryear.textContent = year;
-//     initdays();
+//     getCurYear.textContent = year;
+//     initDays();
 //   };
 // }
 
-function initdays() {
+function initDays() {
   // console.log("I am day");
 
-  getcaldays.innerHTML = "";
+  getCalDays.innerHTML = "";
 
-  let tmpdays = new Date(year, month, 0);
-  // console.log(tmpdays); // Fri Apr 19 2024 21:44:18 GMT+0630 (Myanmar Time)
-  let getalldays = alldays(year, month);
-  // console.log(getalldays); // 30
-  let getprevendday = tmpdays.getDay();
-  // console.log(getprevendday); // 0
+  let tmpDays = new Date(year, month, 0);
+  // console.log(tmpDays); // Fri Apr 19 2024 21:44:18 GMT+0630 (Myanmar Time)
+  let getAllDays = allDays(year, month);
+  // console.log(getAllDays); // 30
+  let getPrevEndDay = tmpDays.getDay();
+  // console.log(getPrevEndDay); // 0
 
-  for (let x = 0; x <= getprevendday; x++) {
+  for (let x = 0; x <= getPrevEndDay; x++) {
     // console.log(x); // 0
 
     // <label class="day blank"></label>
-    let newlabel = document.createElement("label");
-    newlabel.className = "day blank";
-    // console.log(newlabel);
-    getcaldays.appendChild(newlabel);
+    let newLabel = document.createElement("label");
+    newLabel.className = "day blank";
+    // console.log(newLabel);
+    getCalDays.appendChild(newLabel);
   }
 
-  for (let y = 0; y < getalldays; y++) {
+  for (let y = 0; y < getAllDays; y++) {
     // console.log(y); // 0 to 29
 
-    let eachday = y + 1;
+    let eachDay = y + 1;
 
     // <label class="day">1</label>
-    let newlabel = document.createElement("label");
-    newlabel.textContent = eachday;
-    newlabel.classList.add("day");
-    // console.log(newlabel);
-    getcaldays.appendChild(newlabel);
+    let newLabel = document.createElement("label");
+    newLabel.textContent = eachDay;
+    newLabel.classList.add("day");
+    // console.log(newLabel);
+    getCalDays.appendChild(newLabel);
   }
 }
 
-function alldays(year, month) {
+function allDays(year, month) {
   // console.log(year, month); // 2024 3
 
-  let curalldays = new Date(year, month + 1, 0);
-  // console.log(curalldays); // Tue Apr 30 2024 00:00:00 GMT+0630 (Myanmar Time)
-  curalldays = curalldays.getDate();
-  // console.log(curalldays); // 30
-  return curalldays;
+  let curAllDays = new Date(year, month + 1, 0);
+  // console.log(curAllDays); // Tue Apr 30 2024 00:00:00 GMT+0630 (Myanmar Time)
+  curAllDays = curAllDays.getDate();
+  // console.log(curAllDays); // 30
+  return curAllDays;
 }
 
-// getmonthbtn.addEventListener("click", function () {
+// getMonthBtn.addEventListener("click", function () {
 //   if (this.lastElementChild.classList.contains("show")) {
 //     this.lastElementChild.classList.remove("show");
 //   } else {
@@ -227,7 +227,7 @@ function alldays(year, month) {
 //   }
 // });
 
-getyearbtn.addEventListener("click", function () {
+getYearBtn.addEventListener("click", function () {
   if (this.lastElementChild.classList.contains("show")) {
     this.lastElementChild.classList.remove("show");
   } else {

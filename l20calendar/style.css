@@ -1,36 +1,47 @@
 * {
-  font-family: helvetica;
+  font-family: Helvetica;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #f7f7f8;
 }
 
 .container {
-  width: 700px;
-  padding: 20px;
-  background-color: #f4f4f4;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
+  padding: 28px;
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .btn {
-  width: 80px;
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  background-color: steelblue;
-  color: #fff;
-  border-radius: 10px;
+  width: 110px;
+  padding: 8px 14px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
   float: left;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
 }
 
 .btn:hover {
-  background-color: darkblue;
+  background-color: #fafafa;
+  border-color: #ccc;
 }
 
 .month-btn,
@@ -48,17 +59,19 @@ body {
 
 .dropdown {
   display: none;
-  width: 100px;
+  width: 100%;
+  margin-top: 6px;
   background-color: #fff;
-  color: #000;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  overflow: hidden;
-  font-size: 18px;
+  color: #333;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  font-size: 14px;
   position: absolute;
   left: 0;
-  top: 90%;
+  top: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 
 .dropdown.show {
@@ -66,43 +79,67 @@ body {
 }
 
 .dropdown .dropdown-item {
-  padding: 5px 0;
-  opacity: 0.6;
+  padding: 8px 12px;
+  color: #666;
   cursor: pointer;
-  transition: all 0.2s;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
 }
 
-/* .dropdown .dropdown-item:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-} */
-
 .dropdown .dropdown-item:hover {
-  background-color: steelblue;
-  color: #fff;
-  opacity: 1;
+  background-color: #f2f2f2;
+  color: #111;
+}
+
+.caldates {
+  margin-top: 24px;
+}
+
+.caldates .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
 }
 
 .caldates .days .dayname {
-  padding: 10px 20px;
-  background-color: steelblue;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
+  aspect-ratio: auto;
+  background-color: transparent;
+  padding: 6px 0;
+  color: #999;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .caldates .days .day {
-  width: 85px;
-  margin: 3px;
-  padding: 3px;
-  border: 1px solid steelblue;
-  border-radius: 10px;
-  font-size: 18px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
   text-align: center;
-  float: left;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.caldates .days .day.today {
+  background-color: #333;
+  color: #fff;
+  font-weight: 600;
+}
+
+.caldates .days .day:not(.blank):not(.dayname):not(.today):hover {
+  background-color: #333;
+  color: #fff;
 }
 
 .caldays.days .day.blank {
-  background-color: #f4f4f4;
-  border: none;
+  background-color: transparent;
 }
